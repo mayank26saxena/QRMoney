@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.2"
 
     defaultConfig {
-        applicationId "com.example.mayank.qrmoney"
+        applicationId "com.indiahacks16.fintech.qrmoney"
         minSdkVersion 11
         targetSdkVersion 23
         versionCode 1
@@ -28,4 +28,9 @@ dependencies {
     compile fileTree(dir: 'libs', include: 'Parse-*.jar')
     compile 'com.parse:parse-android:1.10.3'
     compile 'com.android.support:design:23.1.1'
+    compile 'com.google.zxing:android-core:3.2.1'
+    compile 'com.google.zxing:android-integration:3.2.1'
+    compile 'com.google.zxing:core:3.2.1'
+    compile 'com.squareup.picasso:picasso:2.3.2'
+    compile project(':zBarScannerLibrary')
 }
