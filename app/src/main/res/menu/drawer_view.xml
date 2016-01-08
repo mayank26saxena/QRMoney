@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_first_fragment"
+            android:icon="@raw/ic_one"
+            android:title="Add Money"
+            android:checked="true"/>
+        <item
+            android:id="@+id/nav_second_fragment"
+            android:icon="@raw/ic_two"
+            android:title="Send Money" />
+        <item
+            android:id="@+id/nav_third_fragment"
+            android:icon="@raw/ic_three"
+            android:title="My QR" />
+    </group>
+</menu>
