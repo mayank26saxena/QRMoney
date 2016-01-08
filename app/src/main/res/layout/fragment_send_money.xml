@@ -12,30 +12,36 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
-    <Button
-        android:background="@drawable/round_button"
-        android:id="@+id/gallery"
-        android:textColor="@color/green_400"
-        android:text="@string/gallery"
-        android:layout_marginBottom="50dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <LinearLayout
         android:layout_alignParentBottom="true"
-        android:layout_marginLeft="50dp"
-        android:layout_marginStart="50dp"/>
-    <Button
-        android:layout_toEndOf="@+id/gallery"
-        android:layout_toRightOf="@+id/gallery"
-        android:textColor="@color/green_400"
-        android:background="@drawable/round_button"
-        android:id="@+id/camera"
-        android:text="@string/camera"
-        android:layout_marginBottom="50dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"/>
+        android:layout_marginBottom="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/round_button"
+            android:id="@+id/gallery"
+            android:textColor="@color/green_400"
+            android:text="@string/gallery"
+            android:layout_marginBottom="50dp"
+            android:layout_weight="0.5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <Button
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/green_400"
+            android:background="@drawable/round_button"
+            android:id="@+id/camera"
+            android:layout_weight="0.5"
+            android:text="@string/camera"
+            android:layout_marginBottom="50dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -4,16 +4,16 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_first_fragment"
-            android:icon="@raw/ic_one"
+            android:icon="@raw/add"
             android:title="Add Money"
             android:checked="true"/>
         <item
             android:id="@+id/nav_second_fragment"
-            android:icon="@raw/ic_two"
+            android:icon="@raw/send"
             android:title="Send Money" />
         <item
             android:id="@+id/nav_third_fragment"
-            android:icon="@raw/ic_three"
+            android:icon="@raw/qr"
             android:title="My QR" />
     </group>
 </menu>
