@@ -3,10 +3,6 @@ package com.indiahacks16.fintech.qrmoney;
 import android.app.Application;
 
 import com.parse.Parse;
-
-/**
- * Created by Mayank on 08-01-2016.
- */
 public class ParseApplication extends Application {
 
     public static final String YOUR_APPLICATION_ID = "srTc44iIXP6l3c0885gew63p5pkpxt9GHJcYzcrZ" ;

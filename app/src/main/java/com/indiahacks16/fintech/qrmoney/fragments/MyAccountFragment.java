@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +22,7 @@ import com.squareup.picasso.Picasso;
 import java.io.File;
 import java.util.List;
 
-public class MyQRFragment extends Fragment {
+public class MyAccountFragment extends Fragment {
     ImageView mImageQr;
     ImageButton email, whatsapp, share;
     @Override
@@ -32,12 +33,14 @@ public class MyQRFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_my_qr, container, false);
+        View view = inflater.inflate(R.layout.fragment_my_account, container, false);
         mImageQr = (ImageView) view.findViewById(R.id.image_qr);
         SharedPreferences sp = getContext().getSharedPreferences("PHNO", Context.MODE_PRIVATE);
-        String name = sp.getString("phno", "") + ".png";
+        String name = sp.getString("phno", "");
         final String filePath = Environment.getExternalStorageDirectory()
-                + "/qrmoney/" + name;
+                + "/qrmoney/" + name + ".png";
+        File file = new File(filePath);
+        final Uri uri = Uri.fromFile(file);
         Picasso.with(getContext()).load(new File(filePath)).into(mImageQr);
         email = (ImageButton) view.findViewById(R.id.email);
         whatsapp = (ImageButton) view.findViewById(R.id.whatsapp);
@@ -57,7 +60,7 @@ public class MyQRFragment extends Fragment {
                         mailClient.setType("message/rfc822");
                         mailClient.putExtra(Intent.EXTRA_SUBJECT, "My QR Money Code!!");
                         mailClient.putExtra(Intent.EXTRA_TEXT, "Send money in a few seconds using the QR Money App");
-                        mailClient.putExtra(Intent.EXTRA_STREAM, Uri.parse("file://" + filePath));
+                        mailClient.putExtra(Intent.EXTRA_STREAM, uri);
                     }
                 }
                 startActivity(mailClient);
@@ -71,7 +74,7 @@ public class MyQRFragment extends Fragment {
                 sendIntent.putExtra(Intent.EXTRA_TEXT, "My QR Money Code");
                 sendIntent.setType("image/png");
                 sendIntent.setPackage("com.whatsapp");
-                sendIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse("file://" + filePath));
+                sendIntent.putExtra(Intent.EXTRA_STREAM, uri);
                 startActivity(sendIntent);
             }
         });
@@ -80,7 +83,7 @@ public class MyQRFragment extends Fragment {
             public void onClick(View v) {
                 Intent share = new Intent(android.content.Intent.ACTION_SEND);
                 share.setType("image/*");
-                share.putExtra(Intent.EXTRA_STREAM, Uri.parse(filePath)); // Add image path
+                share.putExtra(Intent.EXTRA_STREAM, uri); // Add image path
                 startActivity(Intent.createChooser(share, "Share image using"));
             }
         });

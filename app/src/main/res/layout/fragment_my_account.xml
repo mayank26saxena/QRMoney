@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:background="@color/green_400"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_weight="0.7"
+            android:layout_margin="10dp"
+            android:background="@drawable/round_button"
+            android:layout_marginBottom="200dp"
+            android:id="@+id/image_qr"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:layout_weight="0.3"
+            android:id="@+id/ll"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+            <ImageButton
+                android:padding="5dp"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/email"
+                android:background="@color/green_400"
+                android:src="@drawable/mail"
+                android:layout_weight="0.3"
+                android:scaleType="fitCenter"
+                android:layout_width="60dp"
+                android:layout_height="60dp" />
+            <ImageButton
+                android:padding="5dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="0.3"
+                android:id="@+id/whatsapp"
+                android:background="@color/green_400"
+                android:src="@drawable/whatsapp"
+                android:scaleType="fitCenter"
+                android:layout_width="60dp"
+                android:layout_height="60dp" />
+            <ImageButton
+                android:padding="5dp"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/share"
+                android:background="@color/green_400"
+                android:src="@drawable/share"
+                android:layout_weight="0.3"
+                android:scaleType="fitCenter"
+                android:layout_width="60dp"
+                android:layout_height="60dp" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

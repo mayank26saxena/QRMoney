@@ -14,15 +14,13 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.indiahacks16.fintech.qrmoney.R;
 import com.indiahacks16.fintech.qrmoney.fragments.AddMoneyFragment;
-import com.indiahacks16.fintech.qrmoney.fragments.MyQRFragment;
+import com.indiahacks16.fintech.qrmoney.fragments.MyAccountFragment;
 import com.indiahacks16.fintech.qrmoney.fragments.SendMoneyFragment;
 import com.parse.ParseUser;
 
@@ -109,10 +107,10 @@ public class MainActivity extends AppCompatActivity {
                 fragmentClass = SendMoneyFragment.class;
                 break;
             case R.id.nav_third_fragment:
-                fragmentClass = MyQRFragment.class;
+                fragmentClass = MyAccountFragment.class;
                 break;
             default:
-                fragmentClass = AddMoneyFragment.class;
+                fragmentClass = MyAccountFragment.class;
         }
 
         try {
