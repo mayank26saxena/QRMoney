@@ -1,14 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    android:background="@color/green_400"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ADD MONEY"
-        android:id="@+id/textView"
+        android:textColor="@color/green_400"
+        android:background="@drawable/round_button"
+        android:id="@+id/account_bal"
+        android:text="@string/account_info"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:textSize="30sp" />
+        android:layout_margin="20dp"
+        android:textSize="20sp"
+        android:layout_centerHorizontal="true" />
+
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/round_button"
+            android:id="@+id/add_money_button"
+            android:textColor="@color/green_400"
+            android:text="@string/add_money"
+            android:layout_marginBottom="50dp"
+            android:layout_weight="0.5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <Button
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/green_400"
+            android:background="@drawable/round_button"
+            android:id="@+id/ask_money_button"
+            android:layout_weight="0.5"
+            android:text="@string/ask_for_money"
+            android:layout_marginBottom="50dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
 </RelativeLayout>

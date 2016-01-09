@@ -1,8 +1,10 @@
 package com.indiahacks16.fintech.qrmoney.activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -20,6 +22,8 @@ import com.indiahacks16.fintech.qrmoney.fragments.MyQRFragment;
 import com.indiahacks16.fintech.qrmoney.fragments.SendMoneyFragment;
 import com.parse.ParseUser;
 
+import java.io.File;
+
 public class MainActivity extends AppCompatActivity {
     private DrawerLayout mDrawer;
     private Toolbar toolbar;
@@ -35,6 +39,21 @@ public class MainActivity extends AppCompatActivity {
 
         // Set a Toolbar to replace the ActionBar.
         toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.inflateMenu(R.menu.menu_main);
+        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                if (drawerToggle.onOptionsItemSelected(item)) {
+                    return true;
+                }
+                int id = item.getItemId();
+                if (id == R.id.action_logout) {
+                    ParseUser.logOut();
+                    navigateToLogin();
+                }
+                return true;
+            }
+        });
         setSupportActionBar(toolbar);
 
         // Find our drawer view
@@ -123,10 +142,8 @@ public class MainActivity extends AppCompatActivity {
         if (drawerToggle.onOptionsItemSelected(item)) {
             return true;
         }
-
         int id = item.getItemId();
         if (id == R.id.action_logout) {
-
             ParseUser.logOut();
             navigateToLogin();
         }
@@ -153,6 +170,11 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, LoginActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        SharedPreferences sp = getSharedPreferences("PHNO", MODE_PRIVATE);
+        String name = sp.getString("phno", "");
+        String filePath = Environment.getExternalStorageDirectory() + "/qrmoney/" + name + ".png";
+        new File(filePath).delete();
+        sp.edit().remove("phno").apply();
         startActivity(intent);
     }
 

@@ -6,13 +6,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <ImageView
-        android:background="#000000"
+        android:background="@drawable/round_button"
+        android:layout_marginBottom="200dp"
+        android:layout_above="@+id/ll2"
         android:id="@+id/qr_image"
+        android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_height="wrap_content"  />
     <LinearLayout
+        android:id="@+id/ll2"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="20dp"
         android:layout_width="match_parent"
@@ -25,7 +27,6 @@
             android:id="@+id/gallery"
             android:textColor="@color/green_400"
             android:text="@string/gallery"
-            android:layout_marginBottom="50dp"
             android:layout_weight="0.5"
             android:layout_width="0dp"
             android:layout_height="wrap_content" />
@@ -38,7 +39,6 @@
             android:id="@+id/camera"
             android:layout_weight="0.5"
             android:text="@string/camera"
-            android:layout_marginBottom="50dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content" />
     </LinearLayout>

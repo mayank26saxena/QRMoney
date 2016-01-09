@@ -55,4 +55,9 @@
     <string name="camera">Open Camera</string>
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
+    <string name="account_info">Account Balance :</string>
+    <string name="add_money">ADD MONEY</string>
+    <string name="ask_for_money">ASK FOR MONEY</string>
+    <string name="add_money_dialog_title">"Enter the amount to be added: "</string>
+    <string name="add_money_error_toast">"The value you entered is not valid. Please try again. "</string>
 </resources>
