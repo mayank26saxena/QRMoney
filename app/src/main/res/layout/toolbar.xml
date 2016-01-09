@@ -9,4 +9,21 @@
     android:minHeight="?attr/actionBarSize"
     app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
     android:background="?attr/colorPrimaryDark">
+    <RelativeLayout
+        android:background="#00ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageButton
+            android:layout_centerVertical="true"
+            android:id="@+id/logout"
+            android:background="@color/green_700"
+            android:scaleType="fitCenter"
+            android:src="@drawable/logout"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_width="35dp"
+            android:layout_height="35dp" />
+    </RelativeLayout>
 </android.support.v7.widget.Toolbar>

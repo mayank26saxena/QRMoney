@@ -16,6 +16,10 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
+
 import com.indiahacks16.fintech.qrmoney.R;
 import com.indiahacks16.fintech.qrmoney.fragments.AddMoneyFragment;
 import com.indiahacks16.fintech.qrmoney.fragments.MyQRFragment;
@@ -36,22 +40,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        // Set a Toolbar to replace the ActionBar.
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.inflateMenu(R.menu.menu_main);
-        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+        ImageButton logout = (ImageButton) toolbar.findViewById(R.id.logout);
+        logout.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                if (drawerToggle.onOptionsItemSelected(item)) {
-                    return true;
-                }
-                int id = item.getItemId();
-                if (id == R.id.action_logout) {
-                    ParseUser.logOut();
-                    navigateToLogin();
-                }
-                return true;
+            public void onClick(View v) {
+                navigateToLogin();
             }
         });
         setSupportActionBar(toolbar);
@@ -137,19 +131,6 @@ public class MainActivity extends AppCompatActivity {
         mDrawer.closeDrawers();
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (drawerToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
-        int id = item.getItemId();
-        if (id == R.id.action_logout) {
-            ParseUser.logOut();
-            navigateToLogin();
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
     // Make sure this is the method with just `Bundle` as the signature
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
@@ -177,13 +158,4 @@ public class MainActivity extends AppCompatActivity {
         sp.edit().remove("phno").apply();
         startActivity(intent);
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-
 }
