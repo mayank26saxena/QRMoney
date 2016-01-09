@@ -1,0 +1,203 @@
+[
+    {
+        "outputFile": "C:\\Users\\Arpit\\AndroidStudioProjects\\QRMoney\\cardview\\build\\intermediates\\res\\merged\\debug\\values\\values.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 60,
+                    "endOffset": 111
+                },
+                "from": {
+                    "file": "C:\\Users\\Arpit\\AndroidStudioProjects\\QRMoney\\cardview\\src\\main\\res\\values\\colors.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 1,
+                        "startOffset": 842,
+                        "endColumn": 57,
+                        "endOffset": 898
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 116,
+                    "endColumn": 61,
+                    "endOffset": 173
+                },
+                "from": {
+                    "file": "C:\\Users\\Arpit\\AndroidStudioProjects\\QRMoney\\cardview\\src\\main\\res\\values\\colors.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 737,
+                        "endColumn": 61,
+                        "endOffset": 794
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 178,
+                    "endColumn": 61,
+                    "endOffset": 235
+                },
+                "from": {
+                    "file": "C:\\Users\\Arpit\\AndroidStudioProjects\\QRMoney\\cardview\\src\\main\\res\\values\\colors.xml",
+                    "position": {
+                        "startLine": 24,
+                        "startColumn": 4,
+                        "startOffset": 1098,
+                        "endColumn": 61,
+                        "endOffset": 1155
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 240,
+                    "endColumn": 63,
+                    "endOffset": 299
+                },
+                "from": {
+                    "file": "C:\\Users\\Arpit\\AndroidStudioProjects\\QRMoney\\cardview\\src\\main\\res\\values\\colors.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 4,
+                        "startOffset": 967,
+                        "endColumn": 63,
+                        "endOffset": 1026
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 926,
+                    "endColumn": 58,
+                    "endOffset": 980
+                },
+                "from": {
+                    "file": "C:\\Users\\Arpit\\AndroidStudioProjects\\QRMoney\\cardview\\src\\main\\res\\values\\dimens.xml",
+                    "position": {
+                        "startLine": 23,
+                        "startColumn": 4,
+                        "startOffset": 1056,
+                        "endColumn": 58,
+                        "endOffset": 1110
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 985,
+                    "endColumn": 56,
+                    "endOffset": 1037
+                },
+                "from": {
+                    "file": "C:\\Users\\Arpit\\AndroidStudioProjects\\QRMoney\\cardview\\src\\main\\res\\values\\dimens.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 877,
+                        "endColumn": 56,
+                        "endOffset": 929
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 9,
+                    "startColumn": 4,
+                    "startOffset": 1042,
+                    "endColumn": 53,
+                    "endOffset": 1091
+                },
+                "from": {
+                    "file": "C:\\Users\\Arpit\\AndroidStudioProjects\\QRMoney\\cardview\\src\\main\\res\\values\\dimens.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 737,
+                        "endColumn": 53,
+                        "endOffset": 786
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 1096,
+                    "endLine": 17,
+                    "endColumn": 12,
+                    "endOffset": 1557
+                },
+                "from": {
+                    "file": "C:\\Users\\Arpit\\AndroidStudioProjects\\QRMoney\\cardview\\src\\main\\res\\values\\styles.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 4,
+                        "startOffset": 686,
+                        "endLine": 23,
+                        "endColumn": 12,
+                        "endOffset": 1147
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 18,
+                    "startColumn": 4,
+                    "startOffset": 1562,
+                    "endLine": 20,
+                    "endColumn": 12,
+                    "endOffset": 1683
+                },
+                "from": {
+                    "file": "C:\\Users\\Arpit\\AndroidStudioProjects\\QRMoney\\cardview\\src\\main\\res\\values\\styles.xml",
+                    "position": {
+                        "startLine": 27,
+                        "startColumn": 4,
+                        "startOffset": 1280,
+                        "endLine": 29,
+                        "endColumn": 12,
+                        "endOffset": 1401
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 21,
+                    "startColumn": 4,
+                    "startOffset": 1688,
+                    "endLine": 23,
+                    "endColumn": 12,
+                    "endOffset": 1811
+                },
+                "from": {
+                    "file": "C:\\Users\\Arpit\\AndroidStudioProjects\\QRMoney\\cardview\\src\\main\\res\\values\\styles.xml",
+                    "position": {
+                        "startLine": 24,
+                        "startColumn": 4,
+                        "startOffset": 1152,
+                        "endLine": 26,
+                        "endColumn": 12,
+                        "endOffset": 1275
+                    }
+                }
+            }
+        ]
+    }
+]

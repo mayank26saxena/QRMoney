@@ -1,33 +1,15 @@
 ECLIPSE ANDROID PROJECT IMPORT SUMMARY
 ======================================
 
-Ignored Files:
---------------
-The following files were *not* copied into the new Gradle project; you
-should evaluate whether these are still needed in your project and if
-so manually move them:
-
-* ant.properties
-* build.properties
-* build.xml
-* default.properties
-* proguard-project.txt
-
 Moved Files:
 ------------
 Android Gradle projects use a different directory structure than ADT
 Eclipse projects. Here's how the projects were restructured:
 
-* AndroidManifest.xml => zBarScannerLibrary/src/main/AndroidManifest.xml
-* libs/armeabi-v7a/libiconv.so => zBarScannerLibrary/src/main/jniLibs/armeabi-v7a/libiconv.so
-* libs/armeabi-v7a/libzbarjni.so => zBarScannerLibrary/src/main/jniLibs/armeabi-v7a/libzbarjni.so
-* libs/armeabi/libiconv.so => zBarScannerLibrary/src/main/jniLibs/armeabi/libiconv.so
-* libs/armeabi/libzbarjni.so => zBarScannerLibrary/src/main/jniLibs/armeabi/libzbarjni.so
-* libs/x86/libiconv.so => zBarScannerLibrary/src/main/jniLibs/x86/libiconv.so
-* libs/x86/libzbarjni.so => zBarScannerLibrary/src/main/jniLibs/x86/libzbarjni.so
-* libs/zbar.jar => zBarScannerLibrary/libs/zbar.jar
-* res/ => zBarScannerLibrary/src/main/res/
-* src/ => zBarScannerLibrary/src/main/java/
+* AndroidManifest.xml => cardview\src\main\AndroidManifest.xml
+* res\ => cardview\src\main\res\
+* src\ => cardview\src\main\java
+* src\.readme => cardview\src\main\resources\.readme
 
 Next Steps:
 -----------

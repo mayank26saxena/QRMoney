@@ -19,7 +19,7 @@ import com.indiahacks16.fintech.qrmoney.R;
 import com.parse.ParseUser;
 
 public class AddMoneyFragment extends Fragment {
-
+    public static int accountBalance;
     TextView account_info;
     int account_balance;
     String account_balance_info;
@@ -41,7 +41,7 @@ public class AddMoneyFragment extends Fragment {
         account_info = (TextView) view.findViewById(R.id.account_bal);
         final ParseUser currentUser = ParseUser.getCurrentUser();
         account_balance = currentUser.getInt("account_balance");
-        account_balance_info = getResources().getString(R.string.account_info) + " " + account_balance;
+        account_balance_info = getResources().getString(R.string.account_info) + " Rs. " + account_balance;
         account_info.setText(account_balance_info);
         add = (FloatingActionButton) view.findViewById(R.id.add);
         ask = (FloatingActionButton) view.findViewById(R.id.ask);
@@ -70,8 +70,8 @@ public class AddMoneyFragment extends Fragment {
 
                             final ParseUser c = ParseUser.getCurrentUser();
                             c.put("account_balance", account_balance);
-
-                            account_balance_info = getResources().getString(R.string.account_info) + " " + account_balance;
+                            accountBalance = account_balance;
+                            account_balance_info = getResources().getString(R.string.account_info) + " Rs. " + account_balance;
                             account_info.setText(account_balance_info);
 
                         } else {

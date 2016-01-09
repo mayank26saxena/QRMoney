@@ -60,4 +60,8 @@
     <string name="ask_for_money">ASK FOR MONEY</string>
     <string name="add_money_dialog_title">"Enter the amount to be added: "</string>
     <string name="add_money_error_toast">"The value you entered is not valid. Please try again. "</string>
+    <string name="available">AVAILABLE BALANCE</string>
+    <string name="send_button">SEND</string>
+    <string name="amount_label">AMOUNT</string>
+    <string name="rupees">RS. </string>
 </resources>

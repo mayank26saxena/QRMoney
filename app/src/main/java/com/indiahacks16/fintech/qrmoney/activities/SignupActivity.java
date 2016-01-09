@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -89,6 +90,8 @@ public class SignupActivity extends Activity {
         });
     }
     void generateQR(String phoneNumber) {
+        phoneNumber = "$$" + phoneNumber + "##";
+        Log.v(this.getClass().getSimpleName(), phoneNumber);
         QRCodeEncoder qrCodeEncoder =
                 new QRCodeEncoder(phoneNumber, null, Contents.Type.TEXT, BarcodeFormat.QR_CODE.toString(), 300);
         try {
