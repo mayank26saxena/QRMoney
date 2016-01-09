@@ -3,4 +3,9 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="float_action_item_padding">16dip</dimen>
+    <dimen name="float_action_item_gap">10dip</dimen>
+    <dimen name="float_action_h_padding">16dip</dimen>
+    <dimen name="float_action_v_padding">16dip</dimen>
+    <dimen name="float_action_threshold">24dip</dimen>
 </resources>

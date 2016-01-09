@@ -8,11 +8,13 @@ import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.OvershootInterpolator;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.github.clans.fab.FloatingActionButton;
 import com.indiahacks16.fintech.qrmoney.R;
 import com.parse.ParseUser;
 
@@ -22,12 +24,10 @@ public class AddMoneyFragment extends Fragment {
     int account_balance;
     String account_balance_info;
 
-    Button mAskMoneyButton;
-    Button mAddMoneyButton;
-
     String input_added_money;
     int input_added_balance;
 
+    FloatingActionButton add, ask;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,18 +39,15 @@ public class AddMoneyFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_add_money, container, false);
         account_info = (TextView) view.findViewById(R.id.account_bal);
-        mAskMoneyButton = (Button) view.findViewById(R.id.ask_money_button);
-        mAddMoneyButton = (Button) view.findViewById(R.id.add_money_button);
-
         final ParseUser currentUser = ParseUser.getCurrentUser();
         account_balance = currentUser.getInt("account_balance");
-
         account_balance_info = getResources().getString(R.string.account_info) + " " + account_balance;
         account_info.setText(account_balance_info);
-
-        mAddMoneyButton.setOnClickListener(new View.OnClickListener() {
+        add = (FloatingActionButton) view.findViewById(R.id.add);
+        ask = (FloatingActionButton) view.findViewById(R.id.ask);
+        add.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                 builder.setTitle(getResources().getString(R.string.add_money_dialog_title));
 
@@ -92,7 +89,6 @@ public class AddMoneyFragment extends Fragment {
                 builder.show();
             }
         });
-
         return view;
     }
 

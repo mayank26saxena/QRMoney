@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "/home/arpit/Downloads/QRMoney/zBarScannerLibrary/build/intermediates/res/merged/androidTest/debug/values/values.xml",
+        "outputFile": "C:\\Users\\Arpit\\AndroidStudioProjects\\QRMoney\\zBarScannerLibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\values\\values.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 100
                 },
                 "from": {
-                    "file": "/home/arpit/Downloads/QRMoney/zBarScannerLibrary/build/intermediates/bundles/debug/res/values/values.xml",
+                    "file": "C:\\Users\\Arpit\\AndroidStudioProjects\\QRMoney\\zBarScannerLibrary\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -24,7 +24,7 @@
         ]
     },
     {
-        "outputFile": "/media/arpit/OS/Users/Arpit/AndroidStudioProjects/QRMoney/zBarScannerLibrary/build/intermediates/res/merged/androidTest/debug/values/values.xml",
+        "outputFile": "C:\\media\\arpit\\OS\\Users\\Arpit\\AndroidStudioProjects\\QRMoney\\zBarScannerLibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\values\\values.xml",
         "map": [
             {
                 "to": {
@@ -35,7 +35,31 @@
                     "endOffset": 100
                 },
                 "from": {
-                    "file": "/media/arpit/OS/Users/Arpit/AndroidStudioProjects/QRMoney/zBarScannerLibrary/build/intermediates/bundles/debug/res/values/values.xml",
+                    "file": "C:\\media\\arpit\\OS\\Users\\Arpit\\AndroidStudioProjects\\QRMoney\\zBarScannerLibrary\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 49,
+                        "endOffset": 100
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "C:\\home\\arpit\\Downloads\\QRMoney\\zBarScannerLibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\values\\values.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 49,
+                    "endOffset": 100
+                },
+                "from": {
+                    "file": "C:\\home\\arpit\\Downloads\\QRMoney\\zBarScannerLibrary\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,

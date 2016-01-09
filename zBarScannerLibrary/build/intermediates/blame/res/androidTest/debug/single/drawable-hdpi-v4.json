@@ -1,10 +1,14 @@
 [
     {
-        "merged": "/media/arpit/OS/Users/Arpit/AndroidStudioProjects/QRMoney/zBarScannerLibrary/build/intermediates/res/merged/androidTest/debug/drawable-hdpi-v4/ic_launcher.png",
-        "source": "/media/arpit/OS/Users/Arpit/AndroidStudioProjects/QRMoney/zBarScannerLibrary/build/intermediates/bundles/debug/res/drawable-hdpi-v4/ic_launcher.png"
+        "merged": "C:\\Users\\Arpit\\AndroidStudioProjects\\QRMoney\\zBarScannerLibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ic_launcher.png",
+        "source": "C:\\Users\\Arpit\\AndroidStudioProjects\\QRMoney\\zBarScannerLibrary\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ic_launcher.png"
     },
     {
-        "merged": "/home/arpit/Downloads/QRMoney/zBarScannerLibrary/build/intermediates/res/merged/androidTest/debug/drawable-hdpi-v4/ic_launcher.png",
-        "source": "/home/arpit/Downloads/QRMoney/zBarScannerLibrary/build/intermediates/bundles/debug/res/drawable-hdpi-v4/ic_launcher.png"
+        "merged": "C:\\media\\arpit\\OS\\Users\\Arpit\\AndroidStudioProjects\\QRMoney\\zBarScannerLibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ic_launcher.png",
+        "source": "C:\\media\\arpit\\OS\\Users\\Arpit\\AndroidStudioProjects\\QRMoney\\zBarScannerLibrary\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\home\\arpit\\Downloads\\QRMoney\\zBarScannerLibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ic_launcher.png",
+        "source": "C:\\home\\arpit\\Downloads\\QRMoney\\zBarScannerLibrary\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ic_launcher.png"
     }
 ]
