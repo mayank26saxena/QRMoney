@@ -28,7 +28,6 @@ import java.io.FileOutputStream;
 public class SignupActivity extends Activity {
     EditText mUserName;
     EditText mPassword;
-    EditText mEmail;
     EditText mPhoneNumber;
     Button mSignUpButton;
     @Override
@@ -38,7 +37,6 @@ public class SignupActivity extends Activity {
         setContentView(R.layout.activity_signup);
         mUserName = (EditText) findViewById(R.id.name);
         mPassword = (EditText) findViewById(R.id.password);
-        mEmail = (EditText) findViewById(R.id.email);
         mSignUpButton = (Button) findViewById(R.id.btnRegister);
         mPhoneNumber = (EditText) findViewById(R.id.phoneNumber);
         mSignUpButton.setOnClickListener(new View.OnClickListener() {
@@ -46,13 +44,10 @@ public class SignupActivity extends Activity {
             public void onClick(View view) {
                 String username = mUserName.getText().toString();
                 String password = mPassword.getText().toString();
-                String email = mEmail.getText().toString();
                 String phoneNumber = mPhoneNumber.getText().toString();
                 username = username.trim();
                 password = password.trim();
-                email = email.trim();
-                phoneNumber = phoneNumber.trim();
-                if (username.isEmpty() || password.isEmpty() || email.isEmpty()) {
+                if (username.isEmpty() || password.isEmpty() /*|| email.isEmpty()*/) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(SignupActivity.this);
                     builder.setMessage(R.string.signup_error_message);
                     builder.setTitle(R.string.signup_error_title);
@@ -62,9 +57,13 @@ public class SignupActivity extends Activity {
                 } else {
                     setProgressBarIndeterminateVisibility(true);
                     ParseUser newUser = new ParseUser();
-                    newUser.setUsername(username);
+                    //newUser.setUsername(username);
+                    newUser.setUsername(phoneNumber);
+                    newUser.put("Full_Name", username);
                     newUser.setPassword(password);
-                    newUser.setEmail(email);
+                    newUser.put("phoneNumber", phoneNumber);
+                    newUser.put("account_balance", 1000);
+                    //newUser.setEmail(email);
                     newUser.signUpInBackground(new SignUpCallback() {
                         @Override
                         public void done(ParseException e) {
@@ -90,6 +89,8 @@ public class SignupActivity extends Activity {
         });
     }
     void generateQR(String phoneNumber) {
+        SharedPreferences sp = getSharedPreferences("PHNO", MODE_PRIVATE);
+        sp.edit().putString("phno", phoneNumber).apply();
         phoneNumber = "$$" + phoneNumber + "##";
         Log.v(this.getClass().getSimpleName(), phoneNumber);
         QRCodeEncoder qrCodeEncoder =
@@ -107,8 +108,6 @@ public class SignupActivity extends Activity {
             bitmap.compress(Bitmap.CompressFormat.PNG, 85, fOut);
             fOut.flush();
             fOut.close();
-            SharedPreferences sp = getSharedPreferences("PHNO", MODE_PRIVATE);
-            sp.edit().putString("phno", phoneNumber).apply();
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -19,8 +19,9 @@ public class LoginActivity extends Activity {
 
     public static final String TAG = LoginActivity.class.getSimpleName();
 
-    EditText mUserName;
+    EditText mPhoneNumber;
     EditText mPassword;
+    EditText mPin;
 
     Button mLoginButton;
 
@@ -44,16 +45,18 @@ public class LoginActivity extends Activity {
             }
         });
 
-        mUserName = (EditText) findViewById(R.id.name);
+        //mUserName = (EditText) findViewById(R.id.name);
+        mPhoneNumber = (EditText) findViewById(R.id.phoneNumber);
         mPassword = (EditText) findViewById(R.id.password);
         mLoginButton = (Button) findViewById(R.id.btnLogin);
+        mPin = (EditText) findViewById(R.id.pin);
 
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String username = mUserName.getText().toString();
-                String password = mPassword.getText().toString();
-
+                String username = mPhoneNumber.getText().toString();
+                String password = mPin.getText().toString();
+                getSharedPreferences("LOGIN", MODE_PRIVATE).edit().putString("username", username).apply();
                 username = username.trim();
                 password = password.trim();
 

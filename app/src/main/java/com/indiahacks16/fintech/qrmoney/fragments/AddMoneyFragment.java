@@ -16,6 +16,8 @@ import com.github.clans.fab.FloatingActionButton;
 import com.indiahacks16.fintech.qrmoney.R;
 import com.parse.ParseUser;
 
+import org.w3c.dom.Text;
+
 public class AddMoneyFragment extends Fragment {
     public static int accountBalance;
     TextView account_info;
@@ -26,6 +28,9 @@ public class AddMoneyFragment extends Fragment {
     int input_added_balance;
 
     FloatingActionButton add, ask;
+
+    String name ;
+    TextView welcome_tv;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,12 +42,17 @@ public class AddMoneyFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_add_money, container, false);
         account_info = (TextView) view.findViewById(R.id.account_bal);
-        final ParseUser currentUser = ParseUser.getCurrentUser();
-        account_balance = currentUser.getInt("account_balance");
-        account_balance_info = getResources().getString(R.string.account_info) + " Rs. " + account_balance;
-        account_info.setText(account_balance_info);
         add = (FloatingActionButton) view.findViewById(R.id.add);
         ask = (FloatingActionButton) view.findViewById(R.id.ask);
+        welcome_tv = (TextView) view.findViewById(R.id.welcome_text);
+        final ParseUser currentUser = ParseUser.getCurrentUser();
+        if (currentUser != null) {
+            account_balance = currentUser.getInt("account_balance");
+            account_balance_info = getResources().getString(R.string.account_info) + " Rs. " + account_balance;
+            account_info.setText(account_balance_info);
+            name = currentUser.get("Full_Name").toString();
+            welcome_tv.setText(getResources().getString(R.string.welcome_msg) + " " + name + ".");
+        }
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,6 +78,7 @@ public class AddMoneyFragment extends Fragment {
 
                             final ParseUser c = ParseUser.getCurrentUser();
                             c.put("account_balance", account_balance);
+                            c.saveInBackground();
                             accountBalance = account_balance;
                             account_balance_info = getResources().getString(R.string.account_info) + " Rs. " + account_balance;
                             account_info.setText(account_balance_info);

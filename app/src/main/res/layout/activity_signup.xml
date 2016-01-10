@@ -6,7 +6,11 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="10dp" >
-
+    <ImageView
+        android:layout_margin="10dp"
+        android:src="@drawable/logo"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -16,30 +20,18 @@
         android:paddingRight="20dp" >
 
         <EditText
-            android:id="@+id/name"
+            android:id="@+id/phoneNumber"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:background="@drawable/round_button"
-            android:hint="@string/hint_name"
+            android:hint="@string/hint_phoneNumber"
+            android:inputType="phone"
             android:padding="10dp"
             android:singleLine="true"
-            android:inputType="textCapWords"
             android:textColor="@color/input_register"
             android:textColorHint="@color/input_register_hint" />
 
-        <EditText
-            android:id="@+id/email"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/round_button"
-            android:hint="@string/hint_email"
-            android:inputType="textEmailAddress"
-            android:padding="10dp"
-            android:singleLine="true"
-            android:textColor="@color/input_register"
-            android:textColorHint="@color/input_register_hint" />
 
         <EditText
             android:id="@+id/password"
@@ -55,15 +47,15 @@
             android:textColorHint="@color/input_register_hint" />
 
         <EditText
-            android:id="@+id/phoneNumber"
+            android:id="@+id/name"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:background="@drawable/round_button"
-            android:hint="@string/hint_phoneNumber"
-            android:inputType="phone"
+            android:hint="@string/hint_name"
             android:padding="10dp"
             android:singleLine="true"
+            android:inputType="textCapWords"
             android:textColor="@color/input_register"
             android:textColorHint="@color/input_register_hint" />
 

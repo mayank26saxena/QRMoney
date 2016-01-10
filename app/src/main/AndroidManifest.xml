@@ -21,18 +21,24 @@
             android:name=".activities.MainActivity"
             android:label="@string/app_name" >
 
-            <intent-filter>
+            <!--<intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
 
         </activity>
         <activity android:name="com.dm.zbar.android.scanner.ZBarScannerActivity"
             android:screenOrientation="landscape"
             android:label="@string/app_name" />
-        <activity android:name=".activities.SignupActivity"></activity>
-        <activity android:name=".activities.LoginActivity"></activity>
+        <activity android:name=".activities.SignupActivity"/>
+        <activity android:name=".activities.LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

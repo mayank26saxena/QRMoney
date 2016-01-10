@@ -5,6 +5,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
     <LinearLayout
+        android:id="@+id/lL"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -54,4 +55,24 @@
                 android:layout_height="60dp" />
         </LinearLayout>
     </LinearLayout>
+    <TextView
+        android:id="@+id/historytext"
+        android:layout_below="@+id/lL"
+        android:text="@string/history_transaction"
+        android:textSize="16dp"
+        android:textColor="@color/green_400"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/round_button_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/history_transaction"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/round_button"
+        android:layout_below="@+id/historytext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </RelativeLayout>

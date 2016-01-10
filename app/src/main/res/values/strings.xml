@@ -58,4 +58,10 @@
     <string name="send_button">SEND</string>
     <string name="amount_label">AMOUNT</string>
     <string name="rupees">RS. </string>
+    <string name="history_transaction">Transaction History</string>
+    <string name="hint_pin">Pin</string>
+    <string name="welcome_msg">Welcome</string>
+    <string name="toast_decode_qr_error_msg">"Sorry, something went wrong. "</string>
+    <string name="receiver">"Receiver : "</string>
+    <string name="thanks_msg">Thanks for using QR Money</string>
 </resources>

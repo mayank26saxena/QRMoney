@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <TextView
+        android:layout_margin="10dp"
+        android:id="@+id/history_receiver"
+        android:textColor="@color/green_400"
+        android:text="@string/add_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/history_date_time"
+        android:textColor="@color/green_400"
+        android:layout_marginStart="10dp"
+        android:text="@string/add_money"
+        android:layout_below="@+id/history_receiver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/history_amount"
+        android:textColor="@color/green_400"
+        android:layout_centerVertical="true"
+        android:textSize="16sp"
+        android:layout_margin="10dp"
+        android:text="@string/add_money"
+        android:layout_alignParentEnd="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold" />
+</RelativeLayout>

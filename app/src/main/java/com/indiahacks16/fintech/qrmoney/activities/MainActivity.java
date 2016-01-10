@@ -1,5 +1,6 @@
 package com.indiahacks16.fintech.qrmoney.activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -49,6 +50,11 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         // Find our drawer view
+        String dirPath = Environment.getExternalStorageDirectory() + "/qrmoney/history";
+        File dir = new File(dirPath);
+        if(!dir.exists())
+            dir.mkdirs();
+        //getSharedPreferences("PHNO", Context.MODE_PRIVATE).edit().putString("phno", "9650232758").apply();
         mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
         // Find our drawer view
@@ -110,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
                 fragmentClass = MyAccountFragment.class;
                 break;
             default:
-                fragmentClass = MyAccountFragment.class;
+                fragmentClass = AddMoneyFragment.class;
         }
 
         try {

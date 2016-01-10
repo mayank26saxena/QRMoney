@@ -6,7 +6,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:fab="http://schemas.android.com/apk/res-auto">
-
+    <TextView
+        android:textColor="@color/green_400"
+        android:background="@drawable/round_button"
+        android:id="@+id/welcome_text"
+        android:text="@string/welcome_msg"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="65dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
     <TextView
         android:textColor="@color/green_400"
         android:background="@drawable/round_button"
