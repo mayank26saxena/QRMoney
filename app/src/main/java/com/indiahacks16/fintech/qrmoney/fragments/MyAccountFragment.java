@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ResolveInfo;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -18,7 +19,11 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.WriterException;
+import com.indiahacks16.fintech.qrmoney.Contents;
 import com.indiahacks16.fintech.qrmoney.HistoryRecyclerAdapter;
+import com.indiahacks16.fintech.qrmoney.QRCodeEncoder;
 import com.indiahacks16.fintech.qrmoney.R;
 import com.indiahacks16.fintech.qrmoney.Transaction;
 import com.squareup.picasso.Picasso;
@@ -60,7 +65,16 @@ public class MyAccountFragment extends Fragment {
                 + "/qrmoney/" + "$$" + name + "##" + ".png";
         File file = new File(filePath);
         final Uri uri = Uri.fromFile(file);
-        Picasso.with(getContext()).load(new File(filePath)).into(mImageQr);
+        //Picasso.with(getContext()).load(new File(filePath)).into(mImageQr);
+        name = "$$" + name + "##";
+        QRCodeEncoder qrCodeEncoder =
+                new QRCodeEncoder(name, null, Contents.Type.TEXT, BarcodeFormat.QR_CODE.toString(), 300);
+        try {
+            Bitmap bitmap = qrCodeEncoder.encodeAsBitmap();
+            mImageQr.setImageBitmap(bitmap);
+        } catch (WriterException e) {
+            e.printStackTrace();
+        }
         email = (ImageButton) view.findViewById(R.id.email);
         whatsapp = (ImageButton) view.findViewById(R.id.whatsapp);
         share = (ImageButton) view.findViewById(R.id.share);
@@ -153,6 +167,9 @@ public class MyAccountFragment extends Fragment {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return new JSONArray(sb.toString());
+        if(sb.toString().length() != 0)
+            return new JSONArray(sb.toString());
+        else
+            return null;
     }
 }

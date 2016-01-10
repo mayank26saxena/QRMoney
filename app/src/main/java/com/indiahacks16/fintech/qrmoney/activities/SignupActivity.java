@@ -89,8 +89,8 @@ public class SignupActivity extends Activity {
         });
     }
     void generateQR(String phoneNumber) {
-        SharedPreferences sp = getSharedPreferences("PHNO", MODE_PRIVATE);
-        sp.edit().putString("phno", phoneNumber).apply();
+        SharedPreferences sp = getSharedPreferences("login", MODE_PRIVATE);
+        sp.edit().putString("username", phoneNumber).apply();
         phoneNumber = "$$" + phoneNumber + "##";
         Log.v(this.getClass().getSimpleName(), phoneNumber);
         QRCodeEncoder qrCodeEncoder =
