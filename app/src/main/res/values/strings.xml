@@ -65,4 +65,12 @@
     <string name="receiver">"Receiver : "</string>
     <string name="thanks_msg">Thanks for using QR Money</string>
     <string name="title_activity_ask_money">AskMoneyActivity</string>
+    <string name="input_amount_msg">Please enter a valid amount.</string>
+    <string name="no_sufficient_bal_msg">You don\'t have sufficient balance.</string>
+    <string name="enter_verification_number_msg">Enter the Verification Code.</string>
+    <string name="resend_verification_code">Resend Verification Code</string>
+    <string name="verification_msg">We\'ve sent you an SMS with an activation code to your phone</string>
+    <string name="verification_code_hint">Enter Verification Code</string>
+    <string name="go_to_verification_btn_text">NEXT</string>
+    <string name="verify_button">VERIFY NUMBER</string>
 </resources>

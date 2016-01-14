@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.clans.fab.FloatingActionButton;
+import com.github.clans.fab.FloatingActionMenu;
 import com.indiahacks16.fintech.qrmoney.R;
 import com.indiahacks16.fintech.qrmoney.activities.AskMoneyActivity;
 import com.parse.GetCallback;
@@ -40,6 +41,7 @@ public class AddMoneyFragment extends Fragment {
     String input_added_money;
     int input_added_balance;
     FloatingActionButton add, ask;
+    FloatingActionMenu menu;
     String name ;
     TextView welcome_tv;
     //Button testPush;
@@ -47,12 +49,12 @@ public class AddMoneyFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_add_money, container, false);
         account_info = (TextView) view.findViewById(R.id.account_bal);
+        menu = (FloatingActionMenu) view.findViewById(R.id.menu);
         add = (FloatingActionButton) view.findViewById(R.id.add);
         ask = (FloatingActionButton) view.findViewById(R.id.ask);
         welcome_tv = (TextView) view.findViewById(R.id.welcome_text);
@@ -65,53 +67,11 @@ public class AddMoneyFragment extends Fragment {
             name = currentUser.get("Full_Name").toString();
             welcome_tv.setText(getResources().getString(R.string.welcome_msg) + " " + name + ".");
         }
-        /*testPush.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Snackbar.make(testPush, "Button Pressed", Snackbar.LENGTH_LONG).show();
-                Log.i(this.getClass().getSimpleName(), "Inside Listener");
-                final ParseQuery<ParseInstallation> query2 = ParseInstallation.getQuery();
-                ParseQuery<ParseUser> query = ParseUser.getQuery();
-                query.whereEqualTo("username", "9650232753");
-                query.getFirstInBackground(new GetCallback<ParseUser>() {
-                    public void done(ParseUser object, ParseException e) {
-                        if (e == null) {
-                            Log.v(this.getClass().getSimpleName(), "## " + object.getString("Full_Name"));
-                            Log.v(this.getClass().getSimpleName(), "$$ " + object.getObjectId());
-                            query2.whereEqualTo("objectId", object.get("objectId"));
-                            ParsePush push = new ParsePush();
-                            push.setQuery(query2);
-                            Log.v(this.getClass().getSimpleName(), "Push Query Set");
-                            JSONObject data = new JSONObject();
-                            try {
-                                data.put("message", "Hello World");
-                                data.put("type", "withdrawal");
-                                data.put("amount", 100.0);
-                            } catch (JSONException e1) {
-                                Log.v(this.getClass().getSimpleName(), "Push Data error");
-                                e1.printStackTrace();
-                            }
-                            push.setData(data);
-                            Log.v(this.getClass().getSimpleName(), "Push Data Set");
-                            push.sendInBackground(new SendCallback() {
-                                @Override
-                                public void done(ParseException e) {
-                                    if(e == null)
-                                        Log.v(this.getClass().getSimpleName(), "Push successfully sent");
-                                    else
-                                        Log.v(this.getClass().getSimpleName(), "Error : " + e.getMessage());
-                                }
-                            });
-                        } else {
-                            Log.v(this.getClass().getSimpleName(), "Some error");
-                        }
-                    }
-                });
-            }
-        });*/
+        menu.setClosedOnTouchOutside(true);
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                menu.close(true);
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                 builder.setTitle(getResources().getString(R.string.add_money_dialog_title));
                 final EditText input = new EditText(getContext());
@@ -147,7 +107,9 @@ public class AddMoneyFragment extends Fragment {
         ask.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(), AskMoneyActivity.class));
+                menu.close(true);
+                Snackbar.make(v, "Ask Money not available as of now", Snackbar.LENGTH_LONG).show();
+                //startActivity(new Intent(getContext(), AskMoneyActivity.class));
             }
         });
         return view;

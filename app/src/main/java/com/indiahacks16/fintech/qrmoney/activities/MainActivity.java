@@ -129,6 +129,7 @@ public class MainActivity extends AppCompatActivity {
         String filePath = Environment.getExternalStorageDirectory() + "/qrmoney/" + name + ".png";
         new File(filePath).delete();
         sp.edit().remove("username").apply();
+        ParseUser.logOutInBackground();
         startActivity(intent);
     }
 }
