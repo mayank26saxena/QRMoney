@@ -29,7 +29,7 @@ public class SignupActivity extends Activity {
     EditText mUserName;
     EditText mPassword;
     EditText mPhoneNumber;
-    Button mSignUpButton;
+    Button mSignUpButton, mBackToLogin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +39,16 @@ public class SignupActivity extends Activity {
         mPassword = (EditText) findViewById(R.id.password);
         mSignUpButton = (Button) findViewById(R.id.btnRegister);
         mPhoneNumber = (EditText) findViewById(R.id.phoneNumber);
+        mBackToLogin = (Button) findViewById(R.id.btnLinkToLoginScreen);
+        mBackToLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(SignupActivity.this, LoginActivity.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(i);
+            }
+        });
         mSignUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -1,6 +1,5 @@
 package com.indiahacks16.fintech.qrmoney.activities;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -48,46 +47,28 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         setSupportActionBar(toolbar);
-
-        // Find our drawer view
         String dirPath = Environment.getExternalStorageDirectory() + "/qrmoney/history";
         File dir = new File(dirPath);
         if(!dir.exists())
             dir.mkdirs();
-        //getSharedPreferences("PHNO", Context.MODE_PRIVATE).edit().putString("phno", "9650232758").apply();
         mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-
-        // Find our drawer view
         nvDrawer = (NavigationView) findViewById(R.id.nvView);
-        // Setup drawer view
         setupDrawerContent(nvDrawer);
-
         drawerToggle = setupDrawerToggle();
-
-        // Tie DrawerLayout events to the ActionBarToggle
         mDrawer.setDrawerListener(drawerToggle);
-
         FragmentTransaction tx = getSupportFragmentManager().beginTransaction();
         tx.replace(R.id.flContent, new AddMoneyFragment());
         tx.commit();
-
         ParseUser currentUser = ParseUser.getCurrentUser();
-
         if (currentUser == null) {
             navigateToLogin();
         } else {
-
-            Log.i(TAG, currentUser.getUsername());
-
+            //Log.i(TAG, currentUser.getUsername());
         }
-
     }
-
     private ActionBarDrawerToggle setupDrawerToggle() {
         return new ActionBarDrawerToggle(this, mDrawer, toolbar, R.string.drawer_open, R.string.drawer_close);
     }
-
-
     private void setupDrawerContent(NavigationView navigationView) {
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
@@ -98,12 +79,8 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
     }
-
     public void selectDrawerItem(MenuItem menuItem) {
-        // Create a new fragment and specify the planet to show based on
-        // position
         Fragment fragment = null;
-
         Class fragmentClass;
         switch (menuItem.getItemId()) {
             case R.id.nav_first_fragment:
@@ -124,42 +101,31 @@ public class MainActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        // Insert the fragment by replacing any existing fragment
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
-
-        // Highlight the selected item, update the title, and close the drawer
         menuItem.setChecked(true);
         setTitle(menuItem.getTitle());
         mDrawer.closeDrawers();
     }
-
-    // Make sure this is the method with just `Bundle` as the signature
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-
-        // Sync the toggle state after onRestoreInstanceState has occurred.
         drawerToggle.syncState();
     }
-
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        // Pass any configuration change to the drawer toggles
         drawerToggle.onConfigurationChanged(newConfig);
     }
-
     private void navigateToLogin() {
         Intent intent = new Intent(this, LoginActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        SharedPreferences sp = getSharedPreferences("PHNO", MODE_PRIVATE);
-        String name = sp.getString("phno", "");
+        SharedPreferences sp = getSharedPreferences("LOGIN", MODE_PRIVATE);
+        String name = sp.getString("username", "");
         String filePath = Environment.getExternalStorageDirectory() + "/qrmoney/" + name + ".png";
         new File(filePath).delete();
-        sp.edit().remove("phno").apply();
+        sp.edit().remove("username").apply();
         startActivity(intent);
     }
 }

@@ -34,6 +34,7 @@ import com.google.zxing.common.HybridBinarizer;
 import com.parse.FindCallback;
 import com.parse.GetCallback;
 import com.parse.ParseException;
+import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.squareup.picasso.Picasso;
@@ -199,6 +200,21 @@ public class SendMoneyFragment extends Fragment {
                         int sender_account_balance = ParseUser.getCurrentUser().getInt("account_balance");
                         receiver_account_balance += amount;
                         sender_account_balance -= amount;
+
+                        String s = (String) ParseUser.getCurrentUser().get("Full_Name");
+
+                        ParseObject transaction_record = new ParseObject("Transaction_Record");
+
+                        transaction_record.put("Sender_Name", s);
+                        transaction_record.put("Sender_Number", ParseUser.getCurrentUser().getUsername());
+                        transaction_record.put("Receiver_Name", full_name);
+                        transaction_record.put("Receiver_Number", receiverPhoneNumber );
+                        transaction_record.put("Amount", amount);
+                        transaction_record.put("Transcation_Status", "0"); //Status = 0 means transaction incomplete.
+
+
+                        transaction_record.saveInBackground();
+
                         user.put("account_balance", receiver_account_balance);
                         user.saveInBackground();
                         p.put("account_balance", receiver_account_balance);
@@ -215,6 +231,8 @@ public class SendMoneyFragment extends Fragment {
                             full_name = (String) user.get("Full_Name");
                             user.put("account_balance", receiver_account_balance);
                             user.saveInBackground();
+                            receiverInfo.setText(getResources().getString(R.string.receiver) + full_name + "\nPhone Number : " + finalPhoneNumber
+                                    + "\n" + getResources().getString(R.string.thanks_msg));
                         }
                     } else {
                         Log.d(TAG, "Exception : " + e);

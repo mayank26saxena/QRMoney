@@ -26,6 +26,12 @@ import com.indiahacks16.fintech.qrmoney.HistoryRecyclerAdapter;
 import com.indiahacks16.fintech.qrmoney.QRCodeEncoder;
 import com.indiahacks16.fintech.qrmoney.R;
 import com.indiahacks16.fintech.qrmoney.Transaction;
+import com.parse.GetCallback;
+import com.parse.ParseException;
+import com.parse.ParseInstallation;
+import com.parse.ParsePush;
+import com.parse.ParseQuery;
+import com.parse.ParseUser;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
@@ -116,10 +122,37 @@ public class MyAccountFragment extends Fragment {
         share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.v(this.getClass().getSimpleName(), "Inside Listener");
                 Intent share = new Intent(android.content.Intent.ACTION_SEND);
-                share.setType("image/*");
+                share.setType("image*//*");
                 share.putExtra(Intent.EXTRA_STREAM, uri); // Add image path
                 startActivity(Intent.createChooser(share, "Share image using"));
+                /*Log.v(this.getClass().getSimpleName(), "Inside Listener");
+                final ParseQuery<ParseInstallation> query2 = ParseInstallation.getQuery();
+                ParseQuery<ParseUser> query = ParseUser.getQuery();
+                query.whereEqualTo("username", "9312724854");
+                query.getFirstInBackground(new GetCallback<ParseUser>() {
+                    public void done(ParseUser object, ParseException e) {
+                        if(e == null) {
+                            Log.v(this.getClass().getSimpleName(), object.getString("Full_Name"));
+                            query2.whereEqualTo("objectId", object.get("objectId"));
+                        }
+                        else
+                            Log.v(this.getClass().getSimpleName(), e.getMessage());
+                    }
+                });
+                ParsePush push = new ParsePush();
+                push.setQuery(query2);
+                JSONObject data = new JSONObject();
+                try {
+                    data.put("message", "Hello World");
+                    data.put("type", "withdrawal");
+                    data.put("amount", 100.0);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                push.setData(data);
+                push.sendInBackground();*/
             }
         });
         history = (RecyclerView) view.findViewById(R.id.history_transaction);
