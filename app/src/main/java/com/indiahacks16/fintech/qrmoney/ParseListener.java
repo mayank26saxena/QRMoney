@@ -12,6 +12,7 @@ import org.json.JSONObject;
 public class ParseListener extends ParsePushBroadcastReceiver {
     @Override
     protected void onPushReceive(Context context, Intent intent) {
+        super.onPushReceive(context, intent);
         Log.v(this.getClass().getSimpleName(), intent.getExtras().getString("com.parse.Data"));
     }
 

@@ -22,7 +22,9 @@ import com.indiahacks16.fintech.qrmoney.R;
 import com.indiahacks16.fintech.qrmoney.fragments.AddMoneyFragment;
 import com.indiahacks16.fintech.qrmoney.fragments.MyAccountFragment;
 import com.indiahacks16.fintech.qrmoney.fragments.SendMoneyFragment;
+import com.parse.ParseInstallation;
 import com.parse.ParseUser;
+import com.parse.PushService;
 
 import java.io.File;
 
@@ -39,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
+        ParseInstallation.getCurrentInstallation().saveInBackground();
         ImageButton logout = (ImageButton) toolbar.findViewById(R.id.logout);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -24,6 +24,7 @@ import com.parse.ParseObject;
 import com.parse.ParsePush;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
+import com.parse.SendCallback;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -39,7 +40,7 @@ public class AddMoneyFragment extends Fragment {
     FloatingActionButton add, ask;
     String name ;
     TextView welcome_tv;
-    //Button testPush;
+    Button testPush;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +54,7 @@ public class AddMoneyFragment extends Fragment {
         add = (FloatingActionButton) view.findViewById(R.id.add);
         ask = (FloatingActionButton) view.findViewById(R.id.ask);
         welcome_tv = (TextView) view.findViewById(R.id.welcome_text);
-        //testPush = (Button) view.findViewById(R.id.testPush1);
+        testPush = (Button) view.findViewById(R.id.testPush1);
         final ParseUser currentUser = ParseUser.getCurrentUser();
         if (currentUser != null) {
             account_balance = currentUser.getInt("account_balance");
@@ -62,22 +63,20 @@ public class AddMoneyFragment extends Fragment {
             name = currentUser.get("Full_Name").toString();
             welcome_tv.setText(getResources().getString(R.string.welcome_msg) + " " + name + ".");
         }
-        /*testPush.setOnClickListener(new View.OnClickListener() {
+        testPush.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Snackbar.make(testPush, "Button Pressed", Snackbar.LENGTH_LONG).show();
                 Log.i(this.getClass().getSimpleName(), "Inside Listener");
                 final ParseQuery<ParseInstallation> query2 = ParseInstallation.getQuery();
                 ParseQuery<ParseUser> query = ParseUser.getQuery();
-                query.whereEqualTo("username", "9910002160");
+                query.whereEqualTo("username", "9650232753");
                 query.getFirstInBackground(new GetCallback<ParseUser>() {
                     public void done(ParseUser object, ParseException e) {
                         if (e == null) {
                             Log.v(this.getClass().getSimpleName(), "## " + object.getString("Full_Name"));
                             Log.v(this.getClass().getSimpleName(), "$$ " + object.getObjectId());
                             query2.whereEqualTo("objectId", object.get("objectId"));
-                        } else {
-                            Log.v(this.getClass().getSimpleName(), e.getMessage());
                             ParsePush push = new ParsePush();
                             push.setQuery(query2);
                             Log.v(this.getClass().getSimpleName(), "Push Query Set");
@@ -87,17 +86,27 @@ public class AddMoneyFragment extends Fragment {
                                 data.put("type", "withdrawal");
                                 data.put("amount", 100.0);
                             } catch (JSONException e1) {
+                                Log.v(this.getClass().getSimpleName(), "Push Data error");
                                 e1.printStackTrace();
                             }
                             push.setData(data);
                             Log.v(this.getClass().getSimpleName(), "Push Data Set");
-                            push.sendInBackground();
-                            Log.v(this.getClass().getSimpleName(), "Push Sent");
+                            push.sendInBackground(new SendCallback() {
+                                @Override
+                                public void done(ParseException e) {
+                                    if(e == null)
+                                        Log.v(this.getClass().getSimpleName(), "Push successfully sent");
+                                    else
+                                        Log.v(this.getClass().getSimpleName(), "Error : " + e.getMessage());
+                                }
+                            });
+                        } else {
+                            Log.v(this.getClass().getSimpleName(), "Some error");
                         }
                     }
                 });
             }
-        });*/
+        });
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
