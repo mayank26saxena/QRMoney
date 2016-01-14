@@ -2,30 +2,33 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.indiahacks16.fintech.qrmoney">
+    <uses-sdk tools:overrideLibrary="com.github.clans.fab" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-    <permission android:protectionLevel="signature"
-        android:name="com.indiahacks16.fintech.qrmoney.permission.C2D_MESSAGE" />
+    <permission
+        android:name="com.indiahacks16.fintech.qrmoney.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
     <uses-permission android:name="com.indiahacks16.fintech.qrmoney.permission.C2D_MESSAGE" />
     <uses-feature android:name="android.hardware.camera" />
-    <uses-sdk tools:overrideLibrary="com.github.clans.fab"/>
     <application xmlns:tools="http://schemas.android.com/tools"
-        tools:replace="android:icon"
         android:name=".ParseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:replace="android:icon">
+        <meta-data android:name="com.parse.push.notification_icon" android:resource="@drawable/logo"/>
         <service android:name="com.parse.PushService" />
-        <receiver android:name="com.parse.ParsePushBroadcastReceiver"
+        <receiver
+            android:name="com.parse.ParsePushBroadcastReceiver"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.parse.push.intent.RECEIVE" />
@@ -33,14 +36,17 @@
                 <action android:name="com.parse.push.intent.OPEN" />
             </intent-filter>
         </receiver>
-        <receiver android:name=".ParseListener" android:exported="false">
+        <receiver
+            android:name=".ParseListener"
+            android:exported="false">
             <intent-filter>
                 <action android:name="com.parse.push.intent.RECEIVE" />
                 <action android:name="com.parse.push.intent.DELETE" />
                 <action android:name="com.parse.push.intent.OPEN" />
             </intent-filter>
         </receiver>
-        <receiver android:name="com.parse.GcmBroadcastReceiver"
+        <receiver
+            android:name="com.parse.GcmBroadcastReceiver"
             android:permission="com.google.android.c2dm.permission.SEND">
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
@@ -50,18 +56,22 @@
         </receiver>
         <activity
             android:name=".activities.MainActivity"
-            android:label="@string/app_name" >
-        </activity>
-        <activity android:name="com.dm.zbar.android.scanner.ZBarScannerActivity"
-            android:screenOrientation="landscape"
             android:label="@string/app_name" />
-        <activity android:name=".activities.SignupActivity"/>
+        <activity
+            android:name="com.dm.zbar.android.scanner.ZBarScannerActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="landscape" />
+        <activity android:name=".activities.SignupActivity" />
         <activity android:name=".activities.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".activities.AskMoneyActivity"
+            android:label="@string/title_activity_ask_money"
+            android:theme="@style/AppTheme" />
     </application>
-
 </manifest>

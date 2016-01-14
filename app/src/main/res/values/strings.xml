@@ -64,4 +64,5 @@
     <string name="toast_decode_qr_error_msg">"Sorry, something went wrong. "</string>
     <string name="receiver">"Receiver : "</string>
     <string name="thanks_msg">Thanks for using QR Money</string>
+    <string name="title_activity_ask_money">AskMoneyActivity</string>
 </resources>

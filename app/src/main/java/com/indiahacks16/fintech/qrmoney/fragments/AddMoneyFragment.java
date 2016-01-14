@@ -1,6 +1,7 @@
 package com.indiahacks16.fintech.qrmoney.fragments;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 
 import com.github.clans.fab.FloatingActionButton;
 import com.indiahacks16.fintech.qrmoney.R;
+import com.indiahacks16.fintech.qrmoney.activities.AskMoneyActivity;
 import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseInstallation;
@@ -40,7 +42,7 @@ public class AddMoneyFragment extends Fragment {
     FloatingActionButton add, ask;
     String name ;
     TextView welcome_tv;
-    Button testPush;
+    //Button testPush;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +56,7 @@ public class AddMoneyFragment extends Fragment {
         add = (FloatingActionButton) view.findViewById(R.id.add);
         ask = (FloatingActionButton) view.findViewById(R.id.ask);
         welcome_tv = (TextView) view.findViewById(R.id.welcome_text);
-        testPush = (Button) view.findViewById(R.id.testPush1);
+        //testPush = (Button) view.findViewById(R.id.testPush1);
         final ParseUser currentUser = ParseUser.getCurrentUser();
         if (currentUser != null) {
             account_balance = currentUser.getInt("account_balance");
@@ -63,7 +65,7 @@ public class AddMoneyFragment extends Fragment {
             name = currentUser.get("Full_Name").toString();
             welcome_tv.setText(getResources().getString(R.string.welcome_msg) + " " + name + ".");
         }
-        testPush.setOnClickListener(new View.OnClickListener() {
+        /*testPush.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Snackbar.make(testPush, "Button Pressed", Snackbar.LENGTH_LONG).show();
@@ -106,7 +108,7 @@ public class AddMoneyFragment extends Fragment {
                     }
                 });
             }
-        });
+        });*/
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -139,8 +141,13 @@ public class AddMoneyFragment extends Fragment {
                         dialog.cancel();
                     }
                 });
-
                 builder.show();
+            }
+        });
+        ask.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), AskMoneyActivity.class));
             }
         });
         return view;
