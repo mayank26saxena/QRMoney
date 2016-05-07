@@ -13,9 +13,9 @@ Upper right button on the screen is used for logging out from the app.
 [![alt tag](https://github.com/mayank26saxena/QRMoney/blob/master/1.png)](https://www.youtube.com/watch?v=9tnHv0nSUys)
 
 # Motivation
-QR Money was submitted for IndiaHacks - Fintech track. 
+QR Money was submitted for IndiaHacks 2016 - Fintech track. 
 
-Selected for top 20 submissions.
+Final Rank 15, all over India. 
 
 # Developers
 App was developed by [Arpit Gogia](http://www.github.com/arpitgogia) and [Mayank Saxena](http://www.github.com/mayank26saxena).
