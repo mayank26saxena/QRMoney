@@ -9,6 +9,9 @@ After going to Send Money fragment, user is presented with 2 options :
 
 Upper right button on the screen is used for logging out from the app.
 
+# Documentation
+Check out the documentation at - [QRMoney](https://github.com/mayank26saxena/QRMoney/blob/master/QRMoney_Documentation_Final.pdf)
+
 # Demo Video
 [![alt tag](https://github.com/mayank26saxena/QRMoney/blob/master/1.png)](https://www.youtube.com/watch?v=9tnHv0nSUys)
 
